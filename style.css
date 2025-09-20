@@ -13,6 +13,7 @@ header {
     padding: 1em 2em;
     background-color: #00aaff;
     color: white;
+    flex-wrap: wrap;
 }
 
 header .logo {
@@ -40,7 +41,7 @@ header nav a:hover {
 
 .hero .btn {
     display: inline-block;
-    margin-top: 1em;
+    margin: 1em 0.5em 0 0.5em;
     padding: 0.8em 2em;
     background-color: #003366;
     color: white;
@@ -54,16 +55,27 @@ header nav a:hover {
 
 section {
     padding: 2em;
-    max-width: 900px;
+    max-width: 1000px;
     margin: auto;
 }
 
-section .image {
-    width: 100%;
-    max-width: 600px;
-    display: block;
-    margin: 1em auto;
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    justify-content: center;
+}
+
+.gallery img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
     border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.gallery img:hover {
+    transform: scale(1.1);
 }
 
 footer {
@@ -73,3 +85,17 @@ footer {
     padding: 1em 0;
 }
 
+/* Responsive */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    header nav {
+        margin-top: 0.5em;
+    }
+    .gallery img {
+        width: 100%;
+        height: auto;
+    }
+}
